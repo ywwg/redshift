@@ -20,8 +20,8 @@
 #ifndef REDSHIFT_GAMMA_GNOMERR_H
 #define REDSHIFT_GAMMA_GNOMERR_H
 
-#include <stdio.h>
 #include <stdint.h>
+#include <stdio.h>
 
 #include <glib.h>
 #define GNOME_DESKTOP_USE_UNSTABLE_API
@@ -29,33 +29,6 @@
 
 #include "redshift.h"
 
-
-typedef struct {
-	guint32 crtc;
-	unsigned int ramp_size;
-	unsigned short *saved_ramps;
-} gnomerr_crtc_state_t;
-
-typedef struct {
-	GnomeRRScreen *screen;
-	int preserve;
-	int crtc_num_count;
-	int* crtc_num;
-	unsigned int crtc_count;
-	gnomerr_crtc_state_t *crtcs;
-} gnomerr_state_t;
-
-
-int gnomerr_init(gnomerr_state_t *state);
-int gnomerr_start(gnomerr_state_t *state);
-void gnomerr_free(gnomerr_state_t *state);
-
-void gnomerr_print_help(FILE *f);
-int gnomerr_set_option(gnomerr_state_t *state, const char *key, const char *value);
-
-void gnomerr_restore(gnomerr_state_t *state);
-int gnomerr_set_temperature(gnomerr_state_t *state,
-			  const color_setting_t *setting);
-
+extern const gamma_method_t gnomerr_gamma_method;
 
 #endif /* ! REDSHIFT_GAMMA_GNOMERR_H */
