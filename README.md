@@ -1,3 +1,7 @@
+# BROKEN
+
+This is broken, -O will only make the display more red, and each run makes it redder. -x works to reset, but -O 6500 doesn't
+
 
 Redshift
 ========
